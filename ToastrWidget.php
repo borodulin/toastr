@@ -4,12 +4,12 @@
  * @copyright Copyright (c) 2015 Andrey Borodulin
  * @license https://github.com/borodulin/codemirror/blob/master/LICENSE.md
  */
-namespace conquer\codemirror;
+namespace conquer\toastr;
 
 use yii\helpers\Json;
 use yii\helpers\Html;
 
-class ToastrWidget extends \yii\widgets\Widget
+class ToastrWidget extends \yii\base\Widget
 {
 	
 	const POSITION_TOP_RIGHT = 'toast-top-right';
@@ -62,8 +62,8 @@ class ToastrWidget extends \yii\widgets\Widget
 	{
 		static $counter=0;
 		$counter++;
-		if($counter>1)
-			throw new \Exception('Allowed only one widget "'.get_called_class().'"');
+	//	if($counter>1)
+		//	throw new \Exception('Allowed only one widget "'.get_called_class().'"');
 		parent::init();
 	}
 	
@@ -92,7 +92,7 @@ class ToastrWidget extends \yii\widgets\Widget
 		]);
 		$view->registerJs("toastr.options=$options");		
 		if($this->title && $this->message){
-			$view->registerJs("toastr[{$this->type}]('".Html::encode($this->title)."','".Html::encode($this->message)."');");
+			$view->registerJs("toastr['{$this->type}']('".Html::encode($this->title)."','".Html::encode($this->message)."');");
 		}
 		ToastrAsset::register($view);
 	}	

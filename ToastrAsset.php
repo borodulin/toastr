@@ -4,7 +4,7 @@
  * @copyright Copyright (c) 2015 Andrey Borodulin
  * @license https://github.com/borodulin/toastr/blob/master/LICENSE.md
  */
-namespace conquer\codemirror;
+namespace conquer\toastr;
 
 class ToastrAsset extends \yii\web\AssetBundle
 {
