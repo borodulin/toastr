@@ -91,8 +91,13 @@ class ToastrWidget extends \yii\base\Widget
 			"hideMethod" =>$this->hideMethod,
 		]);
 		$view->registerJs("toastr.options=$options");		
-		if($this->title && $this->message){
-			$view->registerJs("toastr['{$this->type}']('".Html::encode($this->title)."','".Html::encode($this->message)."');");
+			$params=[];
+		if($this->title)
+			$params[]='"'.Html::encode($this->title).'"';
+		if($this->message)
+			$params[]='"'.Html::encode($this->message).'"';
+		if(!empty($params)){
+			$view->registerJs("toastr['{$this->type}'](".implode(',', $params).");");
 		}
 		ToastrAsset::register($view);
 	}	
