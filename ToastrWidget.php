@@ -93,10 +93,10 @@ class ToastrWidget extends \yii\base\Widget
 			ToastrAsset::register($view);
 		}
 		$params=[];
-		if($this->title)
-			$params[]='"'.Html::encode($this->title).'"';
 		if($this->message)
 			$params[]='"'.Html::encode($this->message).'"';
+		if($this->title)
+			$params[]='"'.Html::encode($this->title).'"';
 		if(!empty($params)){
 			$view->registerJs("toastr['{$this->type}'](".implode(',', $params).");");
 		}
