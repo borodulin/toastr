@@ -20,7 +20,7 @@
     "require": {
     	"php": ">=5.4.0",
     	"yiisoft/yii2": "*",
-    	"bower-asset/toastr": "*"
+    	"bower-asset/toastr": ">=2.1.1"
     },
 	"autoload": {
 		"psr-4": {
