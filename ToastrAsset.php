@@ -1,12 +1,10 @@
 <?php
 /**
- * @link https://github.com/borodulin/codemirror
+ * @link https://github.com/borodulin/toastr
  * @copyright Copyright (c) 2015 Andrey Borodulin
- * @license https://github.com/borodulin/codemirror/blob/master/LICENSE.md
+ * @license https://github.com/borodulin/toastr/blob/master/LICENSE.md
  */
 namespace conquer\codemirror;
-
-use yii\web\View;
 
 class ToastrAsset extends \yii\web\AssetBundle
 {
