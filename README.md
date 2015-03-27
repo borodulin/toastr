@@ -28,7 +28,7 @@ to the ```require``` section of your `composer.json` file.
 ```php
 use conquer\toastr\ToastrWidget;
 
-ToastrWidget::widget(['title'=>'Hello!', 'Message'=>'world!']);
+ToastrWidget::widget(['title'=>'Hello!', 'message'=>'World!']);
 
 ```
 
