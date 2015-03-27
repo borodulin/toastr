@@ -60,10 +60,6 @@ class ToastrWidget extends \yii\base\Widget
 	 */
 	public function init()
 	{
-		static $counter=0;
-		$counter++;
-	//	if($counter>1)
-		//	throw new \Exception('Allowed only one widget "'.get_called_class().'"');
 		parent::init();
 	}
 	
@@ -72,26 +68,31 @@ class ToastrWidget extends \yii\base\Widget
 	 */
 	public function run()
 	{
+		static $registered=false;
 		$view = $this->view;
-		$options=Json::encode([
-			"closeButton" => $this->closeButton,
-			"debug" => $this->debug,
-			"newestOnTop" => $this->newestOnTop,
-			"progressBar" => $this->progressBar,
-			"positionClass" => $this->positionClass,
-			"preventDuplicates" => $this->preventDuplicates,
-			"onclick" => $this->onclick,
-			"showDuration" => $this->showDuration,
-			"hideDuration" => $this->hideDuration,
-			"timeOut" => $this->timeOut,
-			"extendedTimeOut" => $this->extendedTimeOut,
-			"showEasing" => $this->showEasing,
-			"hideEasing" => $this->hideEasing,
-			"showMethod" => $this->showMethod,
-			"hideMethod" =>$this->hideMethod,
-		]);
-		$view->registerJs("toastr.options=$options");		
-			$params=[];
+		if(!$registered){
+			$options=Json::encode([
+				"closeButton" => $this->closeButton,
+				"debug" => $this->debug,
+				"newestOnTop" => $this->newestOnTop,
+				"progressBar" => $this->progressBar,
+				"positionClass" => $this->positionClass,
+				"preventDuplicates" => $this->preventDuplicates,
+				"onclick" => $this->onclick,
+				"showDuration" => $this->showDuration,
+				"hideDuration" => $this->hideDuration,
+				"timeOut" => $this->timeOut,
+				"extendedTimeOut" => $this->extendedTimeOut,
+				"showEasing" => $this->showEasing,
+				"hideEasing" => $this->hideEasing,
+				"showMethod" => $this->showMethod,
+				"hideMethod" =>$this->hideMethod,
+			]);
+			$view->registerJs("toastr.options=$options");
+			$registered=true;
+			ToastrAsset::register($view);
+		}
+		$params=[];
 		if($this->title)
 			$params[]='"'.Html::encode($this->title).'"';
 		if($this->message)
@@ -99,6 +100,5 @@ class ToastrWidget extends \yii\base\Widget
 		if(!empty($params)){
 			$view->registerJs("toastr['{$this->type}'](".implode(',', $params).");");
 		}
-		ToastrAsset::register($view);
 	}	
 }
