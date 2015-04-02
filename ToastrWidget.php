@@ -9,6 +9,9 @@ namespace conquer\toastr;
 use yii\helpers\Json;
 use yii\helpers\Html;
 
+/**
+ * Toastr home page: {@link https://github.com/CodeSeven/toastr}
+ */
 class ToastrWidget extends \yii\base\Widget
 {
 	

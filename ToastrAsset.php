@@ -6,6 +6,9 @@
  */
 namespace conquer\toastr;
 
+/**
+ * Toastr home page: {@link https://github.com/CodeSeven/toastr}
+ */
 class ToastrAsset extends \yii\web\AssetBundle
 {
 	// The files are not web directory accessible, therefore we need
