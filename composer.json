@@ -1,6 +1,6 @@
 {
     "name": "conquer/toastr",
-    "description": "Conquer toastr widget",
+    "description": "Yii2 toastr widget",
     "keywords": ["yii2", "extension", "widget", "toastr"],
     "homepage": "https://github.com/borodulin/yii2-toastr",
     "type": "yii2-extension",
